@@ -100,3 +100,14 @@ Teacher.prototype.greeting = function() {
 };
 
 let teacher1 = new Teacher('Dave', 'Griffiths', 31, 'male', ['football', 'cookery'], 'mathematics');
+
+function Student(first, last, age, gender, interests){
+  Person.call(this, first, last, age, gender, interests);
+}
+Student.prototype=Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+Student.prototype.greeting = function () {
+  alert('Yo! I\'m ' + this.name.first + '.');
+}
+let student1 = new Student('Liz', 'Sheppard', 17, 'female', ['ninjitsu', 'air cadets']);
